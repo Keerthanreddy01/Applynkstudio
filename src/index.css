@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  body {
+    @apply bg-slate-950 text-slate-100 antialiased;
+  }
+
+  a {
+    @apply outline-none focus-visible:ring-2 focus-visible:ring-sky-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950;
+  }
+}
+
+@layer utilities {
+  .safe-area {
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  .text-gradient {
+    background-image: linear-gradient(98deg, #38bdf8, #6366f1 60%, #a855f7);
+    color: transparent;
+    background-clip: text;
+  }
+
+  .animate-scroll-slow {
+    animation: scrollLeft 30s linear infinite;
+  }
+
+  .animate-scroll-slow:hover {
+    animation-play-state: paused;
+  }
+}
+
+@keyframes scrollLeft {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
