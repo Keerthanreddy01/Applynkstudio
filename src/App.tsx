@@ -129,8 +129,8 @@ const projects = [
     technologies: ["React Native", "Python", "TensorFlow", "AWS IoT"],
     metrics: {
       impact: "40% yield increase",
-      users: "15K+ farmers",
-      savings: "$2M+ saved"
+      reach: "15K+ farmers",
+      efficiency: "60% water saved"
     },
     image: "🌱",
     status: "Live",
@@ -143,9 +143,9 @@ const projects = [
     description: "Enterprise-grade emergency response system with AI-powered threat detection, real-time location tracking, and automated emergency protocols.",
     technologies: ["React", "Node.js", "WebRTC", "Firebase"],
     metrics: {
-      impact: "3s response time",
-      users: "50K+ employees",
-      coverage: "200+ companies"
+      speed: "3s response time",
+      coverage: "50K+ employees",
+      reliability: "99.9% uptime"
     },
     image: "🚨",
     status: "Live",
@@ -158,8 +158,8 @@ const projects = [
     description: "Multilingual form automation platform with NLP processing, smart validation, and seamless integration across 20+ languages and frameworks.",
     technologies: ["Next.js", "OpenAI API", "PostgreSQL", "Stripe"],
     metrics: {
-      impact: "85% completion rate",
-      users: "100K+ forms",
+      completion: "85% success rate",
+      processed: "100K+ forms",
       languages: "20+ supported"
     },
     image: "🤖",
@@ -173,9 +173,9 @@ const projects = [
     description: "Real-time business intelligence platform with automated reporting, predictive analytics, and collaborative dashboard builder.",
     technologies: ["Vue.js", "Python", "Pandas", "Docker"],
     metrics: {
-      impact: "60% faster insights",
+      speed: "60% faster insights",
       users: "5K+ analysts",
-      data: "10TB+ processed"
+      accuracy: "95% prediction rate"
     },
     image: "📊",
     status: "Beta",
@@ -188,9 +188,9 @@ const projects = [
     description: "Automated CI/CD pipeline with intelligent deployment strategies, cost optimization, and performance monitoring.",
     technologies: ["Kubernetes", "Terraform", "GitHub Actions", "Grafana"],
     metrics: {
-      impact: "90% faster deploys",
-      users: "500+ developers",
-      uptime: "99.9% reliability"
+      deployment: "90% faster deploys",
+      developers: "500+ teams",
+      reliability: "99.9% success rate"
     },
     image: "⚡",
     status: "Live",
@@ -203,8 +203,8 @@ const projects = [
     description: "Immersive augmented reality shopping platform with virtual try-ons, 3D product visualization, and social sharing features.",
     technologies: ["React Native", "ARKit", "WebGL", "Three.js"],
     metrics: {
-      impact: "300% engagement",
-      users: "25K+ shoppers",
+      engagement: "300% increase",
+      shoppers: "25K+ users",
       conversion: "45% higher sales"
     },
     image: "🛍️",
@@ -216,65 +216,65 @@ const projects = [
 
 const testimonials = [
   {
-    name: "Sarah Chen",
-    role: "CTO at AgriTech Solutions",
-    company: "AgriTech Solutions",
+    name: "Priya Sharma",
+    role: "Owner",
+    company: "Heritage Grand Hotel, Mumbai",
     image: "👩‍💼",
     rating: 5,
-    text: "AppLynk transformed our agricultural data into actionable insights. The EcoFarm Intelligence platform increased our crop yields by 40% and saved us over $2M in the first year alone.",
-    project: "EcoFarm Intelligence"
+    text: "AppLynk completely transformed our hotel management system. The booking platform they built increased our occupancy rates by 40% and streamlined our entire operation seamlessly.",
+    project: "Hotel Management System"
   },
   {
-    name: "Michael Rodriguez",
-    role: "Security Director",
-    company: "Corporate Security Inc",
+    name: "Rajesh Kumar",
+    role: "Restaurant Manager",
+    company: "Spice Garden Restaurant Chain",
     image: "👨‍💼",
     rating: 5,
-    text: "The SecureAlert Pro system revolutionized our emergency response protocols. Response times dropped from 12 minutes to just 3 seconds. Exceptional engineering and support from the AppLynk team.",
-    project: "SecureAlert Pro"
+    text: "The digital ordering system created by AppLynk revolutionized our restaurant operations. Order processing time reduced from 15 minutes to just 3 minutes, and customer satisfaction improved dramatically.",
+    project: "Digital Ordering Platform"
   },
   {
-    name: "Lisa Wang",
-    role: "Product Manager",
-    company: "FinanceFlow Corp",
-    image: "👩‍💻",
+    name: "Anita Reddy",
+    role: "Clinic Administrator",
+    company: "City Care Medical Center",
+    image: "👩‍⚕️",
     rating: 5,
-    text: "Working with AppLynk was seamless. They delivered a complex form automation system that processes 100K+ forms daily with 85% completion rates. Outstanding technical expertise.",
-    project: "IntelliForm Suite"
+    text: "Working with AppLynk was exceptional. Their patient management system handles 500+ appointments daily with 95% efficiency. The team understood our healthcare requirements perfectly.",
+    project: "Patient Management System"
   },
   {
-    name: "David Kumar",
-    role: "Founder & CEO",
-    company: "DataDriven Analytics",
-    image: "👨‍🚀",
+    name: "Vikram Singh",
+    role: "Store Owner",
+    company: "TechMart Electronics",
+    image: "👨‍�",
     rating: 5,
-    text: "The real-time analytics platform built by AppLynk gives us insights 60% faster than before. Their team understood our complex requirements and delivered beyond expectations.",
-    project: "CloudSync Analytics"
+    text: "The inventory management platform built by AppLynk gives us real-time stock insights and automated reordering. Our efficiency improved by 70% and customer service became much smoother.",
+    project: "Inventory Management System"
   }
 ];
 
 const companyStats = [
   {
-    metric: "50+",
+    metric: "10+",
     label: "Projects Delivered",
     icon: Award,
     color: "emerald"
   },
   {
-    metric: "200K+",
-    label: "Users Impacted",
+    metric: "100%",
+    label: "Client Satisfaction",
     icon: Users,
     color: "blue"
   },
   {
     metric: "99.9%",
-    label: "Uptime Maintained",
+    label: "System Reliability",
     icon: TrendingUp,
     color: "green"
   },
   {
     metric: "24/7",
-    label: "Support Available",
+    label: "Technical Support",
     icon: Clock,
     color: "purple"
   }
@@ -391,8 +391,14 @@ function App() {
       setShowScrollTop(window.scrollY > 500);
     };
 
+    // Add smooth scrolling to the document
+    document.documentElement.style.scrollBehavior = 'smooth';
+
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      document.documentElement.style.scrollBehavior = 'auto';
+    };
   }, []);
 
   const scrollToTop = () => {
@@ -405,22 +411,23 @@ function App() {
     ? projects 
     : projects.filter(project => project.category === projectFilter);
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100">
+    <div className="min-h-screen bg-slate-950 text-slate-100 antialiased">
       <div className="absolute inset-0 -z-10 overflow-hidden">
-        <div className="pointer-events-none absolute -top-48 right-1/2 h-96 w-96 translate-x-1/2 rounded-full bg-emerald-500/20 blur-3xl" />
-        <div className="pointer-events-none absolute bottom-[-120px] left-[-80px] h-80 w-80 rounded-full bg-emerald-500/15 blur-3xl" />
-        <div className="pointer-events-none absolute bottom-[-160px] right-[-60px] h-72 w-72 rounded-full bg-emerald-400/10 blur-3xl" />
+        <div className="pointer-events-none absolute -top-48 right-1/2 h-96 w-96 translate-x-1/2 rounded-full bg-emerald-500/20 blur-3xl animate-pulse" />
+        <div className="pointer-events-none absolute bottom-[-120px] left-[-80px] h-80 w-80 rounded-full bg-emerald-500/15 blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
+        <div className="pointer-events-none absolute bottom-[-160px] right-[-60px] h-72 w-72 rounded-full bg-emerald-400/10 blur-3xl animate-pulse" style={{ animationDelay: '4s' }} />
       </div>
 
       <header className="sticky top-0 z-50 border-b border-emerald-400/20 bg-slate-950/95 backdrop-blur-xl">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
           <a href="#top" className="flex items-center gap-3 text-lg font-semibold">
-            <span className="relative inline-flex h-10 w-10 items-center justify-center overflow-hidden rounded-lg border border-emerald-400/50 bg-emerald-500/10">
+            <span className="relative inline-flex h-10 w-10 items-center justify-center overflow-hidden rounded-xl border-2 border-emerald-400/60 bg-gradient-to-br from-emerald-500/20 to-emerald-600/10 shadow-lg shadow-emerald-500/25">
               <img 
                 src={logo} 
                 alt="AppLynk Studio Logo" 
-                className="h-8 w-8 object-contain"
+                className="h-7 w-7 object-contain filter brightness-110"
               />
+              <div className="absolute inset-0 rounded-xl bg-emerald-400/10 opacity-0 transition-opacity duration-300 hover:opacity-100" />
             </span>
             AppLynk Studio
           </a>
@@ -622,19 +629,20 @@ function App() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: "easeOut" }}
           >
-            <span className="inline-flex items-center gap-2 rounded-full border border-sky-400/60 bg-sky-500/15 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-sky-100">
+            <span className="inline-flex items-center gap-2 rounded-full border border-emerald-400/60 bg-emerald-500/15 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-emerald-100">
+              <Sparkles className="h-3 w-3" />
               Modern Digital Studio
             </span>
-            <h1 className="text-4xl font-bold tracking-tight text-gradient sm:text-5xl lg:text-6xl">
+            <h1 className="text-4xl font-bold tracking-tight bg-gradient-to-r from-white via-slate-100 to-emerald-200 bg-clip-text text-transparent sm:text-5xl lg:text-6xl">
               Linking ideas to intelligent, human-centered digital experiences.
             </h1>
-            <p className="text-lg text-slate-300 sm:text-xl">
+            <p className="text-lg text-slate-300 sm:text-xl leading-relaxed">
               At AppLynk Studio, innovators and developers unite to design scalable products, immersive interfaces, and AI-first workflows that move businesses forward.
             </p>
             <div className="flex w-full flex-col gap-3 sm:flex-row">
               <a
                 href="mailto:applynk@gmail.com"
-                className="group flex min-h-[44px] flex-1 items-center justify-center gap-2 rounded-full bg-sky-400 px-6 py-3 text-base font-semibold text-slate-950 shadow-lg shadow-sky-500/30 transition hover:bg-sky-300"
+                className="group flex min-h-[44px] flex-1 items-center justify-center gap-2 rounded-full bg-emerald-500 px-6 py-3 text-base font-semibold text-white shadow-lg shadow-emerald-500/30 transition-all duration-300 hover:bg-emerald-600 hover:-translate-y-1 hover:shadow-emerald-500/40"
               >
                 Start a Project
                 <ArrowRight
@@ -646,7 +654,7 @@ function App() {
                 href="https://github.com/Applynk-studio"
                 target="_blank"
                 rel="noreferrer"
-                className="flex min-h-[44px] flex-1 items-center justify-center gap-2 rounded-full border border-sky-400/40 bg-white/5 px-6 py-3 text-base font-semibold text-slate-100 transition hover:border-sky-400/80 hover:text-sky-200"
+                className="flex min-h-[44px] flex-1 items-center justify-center gap-2 rounded-full border border-emerald-400/40 bg-white/5 px-6 py-3 text-base font-semibold text-slate-100 transition-all duration-300 hover:border-emerald-400/80 hover:text-emerald-200 hover:-translate-y-1"
               >
                 Explore GitHub
                 <ArrowRight className="h-5 w-5" aria-hidden="true" />
@@ -1246,7 +1254,7 @@ function App() {
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.6 }}
         >
-          <div className="grid gap-8 rounded-3xl border border-white/10 bg-slate-900/50 p-8 shadow-2xl shadow-sky-500/10 md:grid-cols-[1fr,1.5fr]">
+          <div className="grid gap-8 rounded-3xl border border-white/10 bg-slate-900/50 p-8 shadow-2xl shadow-emerald-500/10 md:grid-cols-[1fr,1.5fr]">
             <div className="space-y-4">
               <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-slate-200">
                 Founder Spotlight
@@ -1290,10 +1298,10 @@ function App() {
                   </span>
                   <a
                     className="font-medium text-slate-100"
-                    href="mailto:keerthanreddy1706@gmail.com"
-                    aria-label="Email Keerthan Reddy"
+                    href="mailto:applynk@gmail.com"
+                    aria-label="Email AppLynk Studio"
                   >
-                    keerthanreddy1706@gmail.com
+                    applynk@gmail.com
                   </a>
                 </div>
               </div>
@@ -1365,7 +1373,7 @@ function App() {
                 transition={{ duration: 0.6, delay: 0.1 }}
               >
                 <div className="space-y-4">
-                  <div className="inline-flex items-center gap-2 rounded-full border border-sky-400/40 bg-sky-500/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-sky-200">
+                  <div className="inline-flex items-center gap-2 rounded-full border border-emerald-400/40 bg-emerald-500/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-emerald-200">
                     Co-Founder
                   </div>
                   <h3 className="text-xl font-bold text-white">L. Kiran Teja</h3>
@@ -1374,8 +1382,8 @@ function App() {
                     Passionate software developer with expertise in modern frameworks and scalable architecture. Drives technical excellence and innovation.
                   </p>
                   <div className="flex items-center gap-3 pt-2">
-                    <span className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-sky-400/40 bg-sky-500/10">
-                      <Code className="h-4 w-4 text-sky-200" />
+                    <span className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-emerald-400/40 bg-emerald-500/10">
+                      <Code className="h-4 w-4 text-emerald-200" />
                     </span>
                     <span className="text-xs text-slate-400">Full-Stack Development</span>
                   </div>
@@ -1478,39 +1486,39 @@ function App() {
         </motion.section>
       </main>
 
-      <footer className="border-t border-sky-400/40 bg-slate-950/90 py-8">
+      <footer className="border-t border-emerald-400/20 bg-slate-950/95 py-8">
         <div className="mx-auto flex max-w-6xl flex-col gap-4 px-6 text-sm text-slate-300 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex items-center gap-3 text-slate-200">
-            <span className="relative inline-flex h-9 w-9 items-center justify-center overflow-hidden rounded-full border border-sky-400/50 bg-slate-900/60">
+            <span className="relative inline-flex h-9 w-9 items-center justify-center overflow-hidden rounded-xl border-2 border-emerald-400/50 bg-gradient-to-br from-emerald-500/15 to-emerald-600/5 shadow-md shadow-emerald-500/20">
               <img 
                 src={logo} 
                 alt="AppLynk Studio Logo" 
-                className="h-7 w-7 object-contain"
+                className="h-6 w-6 object-contain filter brightness-110"
               />
             </span>
             <p>© {new Date().getFullYear()} AppLynk Studio. Built with innovation and heart.</p>
           </div>
           <div className="flex flex-wrap items-center gap-4">
-            <a className="flex items-center gap-1 hover:text-sky-200" href="mailto:applynk@gmail.com">
-              <span className="inline-flex h-1.5 w-1.5 rounded-full bg-sky-300" />
+            <a className="flex items-center gap-1 hover:text-emerald-200 transition-colors" href="mailto:applynk@gmail.com">
+              <span className="inline-flex h-1.5 w-1.5 rounded-full bg-emerald-300" />
               applynk@gmail.com
             </a>
             <a
-              className="flex items-center gap-1 hover:text-sky-200"
+              className="flex items-center gap-1 hover:text-emerald-200 transition-colors"
               href="https://github.com/Applynk-studio"
               target="_blank"
               rel="noreferrer"
             >
-              <span className="inline-flex h-1.5 w-1.5 rounded-full bg-sky-300" />
+              <span className="inline-flex h-1.5 w-1.5 rounded-full bg-emerald-300" />
               GitHub
             </a>
             <a
-              className="flex items-center gap-1 hover:text-sky-200"
+              className="flex items-center gap-1 hover:text-emerald-200 transition-colors"
               href="https://www.linkedin.com/company/applynk-studio/?viewAsMember=true"
               target="_blank"
               rel="noreferrer"
             >
-              <span className="inline-flex h-1.5 w-1.5 rounded-full bg-sky-300" />
+              <span className="inline-flex h-1.5 w-1.5 rounded-full bg-emerald-300" />
               LinkedIn
             </a>
           </div>
