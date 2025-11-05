@@ -6,6 +6,7 @@ import {
   Atom,
   BarChart3,
   BrainCircuit,
+  Code,
   Github,
   Headphones,
   LayoutDashboard,
@@ -13,6 +14,7 @@ import {
   Linkedin,
   Rocket,
   Sparkles,
+  Target,
   Users,
   ArrowUp,
 } from "lucide-react";
@@ -253,6 +255,9 @@ function App() {
             </a>
             <a className="transition hover:text-sky-300" href="#founder">
               Founder
+            </a>
+            <a className="transition hover:text-sky-300" href="#crew">
+              Crew
             </a>
             <a className="transition hover:text-sky-300" href="#contact">
               Contact
@@ -713,6 +718,109 @@ function App() {
                   </a>
                 </div>
               </div>
+            </div>
+          </div>
+        </motion.section>
+
+        <motion.section
+          id="crew"
+          className="mx-auto max-w-5xl px-6 pb-20"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.6 }}
+        >
+          <div className="space-y-8">
+            <div className="text-center">
+              <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-slate-200">
+                Our Crew
+              </span>
+              <h2 className="mt-4 text-3xl font-bold text-white sm:text-4xl">
+                Meet the AppLynk Team
+              </h2>
+              <p className="mt-3 text-base text-slate-300 max-w-2xl mx-auto">
+                The innovators and problem-solvers who turn your vision into reality.
+              </p>
+            </div>
+
+            <div className="grid gap-6 md:grid-cols-3">
+              {/* Co-Founder */}
+              <motion.div
+                className="rounded-3xl border border-white/10 bg-slate-900/50 p-6 shadow-2xl shadow-sky-500/10"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+              >
+                <div className="space-y-4">
+                  <div className="inline-flex items-center gap-2 rounded-full border border-sky-400/40 bg-sky-500/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-sky-200">
+                    Co-Founder
+                  </div>
+                  <h3 className="text-xl font-bold text-white">L. Kiran Teja</h3>
+                  <p className="text-sm text-sky-300 font-medium">Software Developer</p>
+                  <p className="text-sm text-slate-300 leading-relaxed">
+                    Passionate software developer with expertise in modern frameworks and scalable architecture. Drives technical excellence and innovation.
+                  </p>
+                  <div className="flex items-center gap-3 pt-2">
+                    <span className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-sky-400/40 bg-sky-500/10">
+                      <Code className="h-4 w-4 text-sky-200" />
+                    </span>
+                    <span className="text-xs text-slate-400">Full-Stack Development</span>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Projects Manager */}
+              <motion.div
+                className="rounded-3xl border border-white/10 bg-slate-900/50 p-6 shadow-2xl shadow-sky-500/10"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+              >
+                <div className="space-y-4">
+                  <div className="inline-flex items-center gap-2 rounded-full border border-emerald-400/40 bg-emerald-500/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-emerald-200">
+                    Projects Manager
+                  </div>
+                  <h3 className="text-xl font-bold text-white">K. Uday Sai</h3>
+                  <p className="text-sm text-emerald-300 font-medium">Projects Manager</p>
+                  <p className="text-sm text-slate-300 leading-relaxed">
+                    Strategic project orchestrator ensuring seamless execution from concept to delivery. Masters the art of turning chaos into clarity.
+                  </p>
+                  <div className="flex items-center gap-3 pt-2">
+                    <span className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-emerald-400/40 bg-emerald-500/10">
+                      <Target className="h-4 w-4 text-emerald-200" />
+                    </span>
+                    <span className="text-xs text-slate-400">Project Leadership</span>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Team Member */}
+              <motion.div
+                className="rounded-3xl border border-white/10 bg-slate-900/50 p-6 shadow-2xl shadow-sky-500/10"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+              >
+                <div className="space-y-4">
+                  <div className="inline-flex items-center gap-2 rounded-full border border-purple-400/40 bg-purple-500/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-purple-200">
+                    Team Member
+                  </div>
+                  <h3 className="text-xl font-bold text-white">V. Shiva Kumar</h3>
+                  <p className="text-sm text-purple-300 font-medium">Core Team</p>
+                  <p className="text-sm text-slate-300 leading-relaxed">
+                    Versatile team player bringing fresh perspectives and innovative solutions. Essential contributor to our collaborative culture.
+                  </p>
+                  <div className="flex items-center gap-3 pt-2">
+                    <span className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-purple-400/40 bg-purple-500/10">
+                      <Users className="h-4 w-4 text-purple-200" />
+                    </span>
+                    <span className="text-xs text-slate-400">Team Collaboration</span>
+                  </div>
+                </div>
+              </motion.div>
             </div>
           </div>
         </motion.section>
