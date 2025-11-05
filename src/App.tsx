@@ -24,6 +24,16 @@ import {
   Monitor,
   Server,
   Lock,
+  Star,
+  Calendar,
+  MapPin,
+  Eye,
+  Filter,
+  Search,
+  Play,
+  Award,
+  TrendingUp,
+  Clock,
 } from "lucide-react";
 
 const services = [
@@ -113,29 +123,161 @@ const differentiators = [
 
 const projects = [
   {
-    title: "GreenDot",
-    emoji: "🌱",
-    description:
-      "Smart agriculture assistant for crop health insights, market pricing, and buyer matchmaking in one hub.",
+    title: "EcoFarm Intelligence",
+    category: "AI & Agriculture",
+    description: "Smart agriculture platform combining IoT sensors, satellite imagery, and machine learning to optimize crop yields and reduce resource consumption by 40%.",
+    technologies: ["React Native", "Python", "TensorFlow", "AWS IoT"],
+    metrics: {
+      impact: "40% yield increase",
+      users: "15K+ farmers",
+      savings: "$2M+ saved"
+    },
+    image: "🌱",
+    status: "Live",
+    link: "#",
+    featured: true
   },
   {
-    title: "SOS Alert System",
-    emoji: "🚨",
-    description:
-      "Tap-to-alert safety network connecting contacts, authorities, and responders with real-time signals.",
+    title: "SecureAlert Pro",
+    category: "Safety & Security",
+    description: "Enterprise-grade emergency response system with AI-powered threat detection, real-time location tracking, and automated emergency protocols.",
+    technologies: ["React", "Node.js", "WebRTC", "Firebase"],
+    metrics: {
+      impact: "3s response time",
+      users: "50K+ employees",
+      coverage: "200+ companies"
+    },
+    image: "🚨",
+    status: "Live",
+    link: "#",
+    featured: true
   },
   {
-    title: "AI Form Assistant",
-    emoji: "🤖",
-    description:
-      "Multilingual form intelligence that auto-completes, translates, and guides users through complex flows.",
+    title: "IntelliForm Suite",
+    category: "AI & Automation",
+    description: "Multilingual form automation platform with NLP processing, smart validation, and seamless integration across 20+ languages and frameworks.",
+    technologies: ["Next.js", "OpenAI API", "PostgreSQL", "Stripe"],
+    metrics: {
+      impact: "85% completion rate",
+      users: "100K+ forms",
+      languages: "20+ supported"
+    },
+    image: "🤖",
+    status: "Live",
+    link: "#",
+    featured: false
   },
   {
-    title: "Accenture Strategy Simulation",
-    emoji: "💼",
-    description:
-      "Consulting simulation focused on journey redesign, data storytelling, and prioritized growth experiments.",
+    title: "CloudSync Analytics",
+    category: "Data & Analytics",
+    description: "Real-time business intelligence platform with automated reporting, predictive analytics, and collaborative dashboard builder.",
+    technologies: ["Vue.js", "Python", "Pandas", "Docker"],
+    metrics: {
+      impact: "60% faster insights",
+      users: "5K+ analysts",
+      data: "10TB+ processed"
+    },
+    image: "📊",
+    status: "Beta",
+    link: "#",
+    featured: false
   },
+  {
+    title: "DevOps Accelerator",
+    category: "Infrastructure",
+    description: "Automated CI/CD pipeline with intelligent deployment strategies, cost optimization, and performance monitoring.",
+    technologies: ["Kubernetes", "Terraform", "GitHub Actions", "Grafana"],
+    metrics: {
+      impact: "90% faster deploys",
+      users: "500+ developers",
+      uptime: "99.9% reliability"
+    },
+    image: "⚡",
+    status: "Live",
+    link: "#",
+    featured: false
+  },
+  {
+    title: "AR Shopping Experience",
+    category: "E-commerce & AR",
+    description: "Immersive augmented reality shopping platform with virtual try-ons, 3D product visualization, and social sharing features.",
+    technologies: ["React Native", "ARKit", "WebGL", "Three.js"],
+    metrics: {
+      impact: "300% engagement",
+      users: "25K+ shoppers",
+      conversion: "45% higher sales"
+    },
+    image: "🛍️",
+    status: "Coming Soon",
+    link: "#",
+    featured: true
+  }
+];
+
+const testimonials = [
+  {
+    name: "Sarah Chen",
+    role: "CTO at AgriTech Solutions",
+    company: "AgriTech Solutions",
+    image: "👩‍💼",
+    rating: 5,
+    text: "AppLynk transformed our agricultural data into actionable insights. The EcoFarm Intelligence platform increased our crop yields by 40% and saved us over $2M in the first year alone.",
+    project: "EcoFarm Intelligence"
+  },
+  {
+    name: "Michael Rodriguez",
+    role: "Security Director",
+    company: "Corporate Security Inc",
+    image: "👨‍💼",
+    rating: 5,
+    text: "The SecureAlert Pro system revolutionized our emergency response protocols. Response times dropped from 12 minutes to just 3 seconds. Exceptional engineering and support from the AppLynk team.",
+    project: "SecureAlert Pro"
+  },
+  {
+    name: "Lisa Wang",
+    role: "Product Manager",
+    company: "FinanceFlow Corp",
+    image: "👩‍💻",
+    rating: 5,
+    text: "Working with AppLynk was seamless. They delivered a complex form automation system that processes 100K+ forms daily with 85% completion rates. Outstanding technical expertise.",
+    project: "IntelliForm Suite"
+  },
+  {
+    name: "David Kumar",
+    role: "Founder & CEO",
+    company: "DataDriven Analytics",
+    image: "👨‍🚀",
+    rating: 5,
+    text: "The real-time analytics platform built by AppLynk gives us insights 60% faster than before. Their team understood our complex requirements and delivered beyond expectations.",
+    project: "CloudSync Analytics"
+  }
+];
+
+const companyStats = [
+  {
+    metric: "50+",
+    label: "Projects Delivered",
+    icon: Award,
+    color: "emerald"
+  },
+  {
+    metric: "200K+",
+    label: "Users Impacted",
+    icon: Users,
+    color: "blue"
+  },
+  {
+    metric: "99.9%",
+    label: "Uptime Maintained",
+    icon: TrendingUp,
+    color: "green"
+  },
+  {
+    metric: "24/7",
+    label: "Support Available",
+    icon: Clock,
+    color: "purple"
+  }
 ];
 
 const futureGoals = [
@@ -241,6 +383,8 @@ const aiToolLogos = [
 function App() {
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [hoveredMenu, setHoveredMenu] = useState<string | null>(null);
+  const [projectFilter, setProjectFilter] = useState<string>('All');
+  const [hoveredProject, setHoveredProject] = useState<string | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -254,6 +398,12 @@ function App() {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
+
+  const projectCategories = ['All', 'AI & Agriculture', 'Safety & Security', 'AI & Automation', 'Data & Analytics', 'Infrastructure', 'E-commerce & AR'];
+  
+  const filteredProjects = projectFilter === 'All' 
+    ? projects 
+    : projects.filter(project => project.category === projectFilter);
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100">
       <div className="absolute inset-0 -z-10 overflow-hidden">
@@ -775,7 +925,7 @@ function App() {
 
         <motion.section
           id="projects"
-          className="mx-auto max-w-6xl px-6 pb-20"
+          className="mx-auto max-w-7xl px-6 pb-20"
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
@@ -783,36 +933,307 @@ function App() {
         >
           <div className="mb-12 text-center">
             <span className="inline-flex items-center gap-2 rounded-full border border-emerald-400/40 bg-emerald-400/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-emerald-200">
-              Our Projects
+              <Star className="h-3 w-3" />
+              Portfolio Showcase
             </span>
-            <h2 className="mt-4 text-3xl font-bold text-white sm:text-4xl">
-              Turning prototypes into production-ready impact.
+            <h2 className="mt-4 text-3xl font-bold text-white sm:text-4xl lg:text-5xl">
+              Transforming Ideas Into <span className="text-emerald-400">Digital Reality</span>
             </h2>
-            <p className="mt-3 text-base text-slate-300 sm:text-lg">
-              Each build combines AI intelligence, thoughtful storytelling, and resilient engineering.
+            <p className="mt-3 text-base text-slate-300 sm:text-lg lg:text-xl max-w-3xl mx-auto">
+              Each project represents our commitment to innovation, scalability, and measurable impact across diverse industries.
             </p>
           </div>
-          <div className="grid gap-6 md:grid-cols-2">
-            {projects.map(({ title, emoji, description }) => (
-              <article
-                key={title}
-                className="flex h-full flex-col justify-between rounded-3xl border border-white/10 bg-slate-900/60 p-6 shadow-xl shadow-emerald-500/5 transition hover:-translate-y-1"
+
+          {/* Category Filter */}
+          <div className="mb-8 flex flex-wrap justify-center gap-2">
+            {projectCategories.map((category) => (
+              <button
+                key={category}
+                onClick={() => setProjectFilter(category)}
+                className={`rounded-full px-4 py-2 text-sm font-medium transition-all duration-300 ${
+                  projectFilter === category
+                    ? 'bg-emerald-500/20 border border-emerald-400/60 text-emerald-300'
+                    : 'bg-slate-800/50 border border-slate-700/50 text-slate-400 hover:bg-slate-700/50 hover:text-slate-300'
+                }`}
               >
-                <div className="space-y-4">
-                  <span className="text-4xl" aria-hidden="true">
-                    {emoji}
+                {category}
+              </button>
+            ))}
+          </div>
+
+          {/* Featured Projects Grid */}
+          <div className="grid gap-8 lg:grid-cols-2 mb-12">
+            {filteredProjects.filter(project => project.featured).map((project, index) => (
+              <motion.article
+                key={project.title}
+                className="group relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-slate-900/90 to-slate-800/50 p-8 shadow-2xl shadow-emerald-500/5 transition-all duration-500 hover:scale-[1.02] hover:shadow-emerald-500/20"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                onMouseEnter={() => setHoveredProject(project.title)}
+                onMouseLeave={() => setHoveredProject(null)}
+              >
+                {/* Status Badge */}
+                <div className="absolute top-4 right-4">
+                  <span className={`inline-flex items-center gap-1 rounded-full px-3 py-1 text-xs font-semibold ${
+                    project.status === 'Live' 
+                      ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-400/40'
+                      : project.status === 'Beta'
+                      ? 'bg-amber-500/20 text-amber-300 border border-amber-400/40'
+                      : 'bg-blue-500/20 text-blue-300 border border-blue-400/40'
+                  }`}>
+                    <div className={`h-1.5 w-1.5 rounded-full ${
+                      project.status === 'Live' ? 'bg-emerald-400' : 
+                      project.status === 'Beta' ? 'bg-amber-400' : 'bg-blue-400'
+                    }`} />
+                    {project.status}
                   </span>
-                  <h3 className="text-2xl font-semibold text-white">{title}</h3>
-                  <p className="text-sm text-slate-300">{description}</p>
                 </div>
-                <a
-                  href="mailto:applynk@gmail.com"
-                  className="mt-6 inline-flex min-h-[44px] items-center gap-2 text-sm font-semibold text-emerald-200 transition hover:text-emerald-100"
-                >
-                  Request a walkthrough
-                  <ArrowRight className="h-4 w-4" aria-hidden="true" />
-                </a>
-              </article>
+
+                <div className="flex items-start gap-6">
+                  {/* Project Icon */}
+                  <div className="flex-shrink-0">
+                    <div className="relative">
+                      <div className="h-16 w-16 rounded-2xl bg-emerald-500/10 border border-emerald-400/30 flex items-center justify-center text-3xl group-hover:scale-110 transition-transform duration-300">
+                        {project.image}
+                      </div>
+                      <div className="absolute inset-0 rounded-2xl bg-emerald-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl" />
+                    </div>
+                  </div>
+
+                  <div className="flex-1 space-y-4">
+                    {/* Category */}
+                    <span className="inline-block rounded-full bg-slate-700/50 px-3 py-1 text-xs font-medium text-slate-300">
+                      {project.category}
+                    </span>
+
+                    {/* Title & Description */}
+                    <div>
+                      <h3 className="text-2xl font-bold text-white group-hover:text-emerald-300 transition-colors duration-300">
+                        {project.title}
+                      </h3>
+                      <p className="mt-2 text-slate-300 leading-relaxed">
+                        {project.description}
+                      </p>
+                    </div>
+
+                    {/* Metrics */}
+                    <div className="grid grid-cols-3 gap-4">
+                      {Object.entries(project.metrics).map(([key, value]) => (
+                        <div key={key} className="text-center">
+                          <div className="text-lg font-bold text-emerald-400">{value}</div>
+                          <div className="text-xs text-slate-400 capitalize">{key}</div>
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* Technologies */}
+                    <div className="flex flex-wrap gap-2">
+                      {project.technologies.slice(0, 4).map((tech) => (
+                        <span
+                          key={tech}
+                          className="rounded-lg bg-slate-800/60 px-2 py-1 text-xs font-medium text-slate-300 border border-slate-700/50"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                      {project.technologies.length > 4 && (
+                        <span className="rounded-lg bg-slate-800/60 px-2 py-1 text-xs font-medium text-slate-400 border border-slate-700/50">
+                          +{project.technologies.length - 4} more
+                        </span>
+                      )}
+                    </div>
+
+                    {/* CTA */}
+                    <div className="flex items-center justify-between pt-2">
+                      <a
+                        href={project.link}
+                        className="inline-flex items-center gap-2 text-sm font-semibold text-emerald-300 hover:text-emerald-200 transition-colors duration-300 group/link"
+                      >
+                        <Play className="h-4 w-4 group-hover/link:translate-x-1 transition-transform duration-300" />
+                        View Project
+                      </a>
+                      <button className="inline-flex items-center gap-2 text-sm font-medium text-slate-400 hover:text-slate-300 transition-colors duration-300">
+                        <Eye className="h-4 w-4" />
+                        Live Demo
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </motion.article>
+            ))}
+          </div>
+
+          {/* Regular Projects Grid */}
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {filteredProjects.filter(project => !project.featured).map((project, index) => (
+              <motion.article
+                key={project.title}
+                className="group relative overflow-hidden rounded-2xl border border-white/10 bg-slate-900/60 p-6 shadow-xl shadow-emerald-500/5 transition-all duration-300 hover:-translate-y-2 hover:shadow-emerald-500/10"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+              >
+                {/* Status Badge */}
+                <div className="absolute top-3 right-3">
+                  <div className={`h-2 w-2 rounded-full ${
+                    project.status === 'Live' ? 'bg-emerald-400' : 
+                    project.status === 'Beta' ? 'bg-amber-400' : 'bg-blue-400'
+                  }`} />
+                </div>
+
+                <div className="space-y-4">
+                  {/* Icon & Category */}
+                  <div className="flex items-center justify-between">
+                    <div className="h-12 w-12 rounded-xl bg-emerald-500/10 border border-emerald-400/30 flex items-center justify-center text-2xl">
+                      {project.image}
+                    </div>
+                    <span className="rounded-full bg-slate-700/50 px-2 py-1 text-xs text-slate-400">
+                      {project.category.split(' & ')[0]}
+                    </span>
+                  </div>
+
+                  {/* Content */}
+                  <div>
+                    <h3 className="text-lg font-semibold text-white group-hover:text-emerald-300 transition-colors">
+                      {project.title}
+                    </h3>
+                    <p className="mt-2 text-sm text-slate-400 line-clamp-3">
+                      {project.description}
+                    </p>
+                  </div>
+
+                  {/* Key Metric */}
+                  <div className="bg-slate-800/50 rounded-lg p-3 border border-slate-700/50">
+                    <div className="text-sm font-bold text-emerald-400">
+                      {Object.values(project.metrics)[0]}
+                    </div>
+                    <div className="text-xs text-slate-500 capitalize">
+                      {Object.keys(project.metrics)[0]}
+                    </div>
+                  </div>
+
+                  {/* Technologies */}
+                  <div className="flex flex-wrap gap-1">
+                    {project.technologies.slice(0, 3).map((tech) => (
+                      <span
+                        key={tech}
+                        className="rounded bg-slate-800/60 px-2 py-1 text-xs text-slate-400"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+
+                  {/* CTA */}
+                  <a
+                    href={project.link}
+                    className="inline-flex items-center gap-2 text-sm font-medium text-emerald-300 hover:text-emerald-200 transition-colors group/link"
+                  >
+                    Learn More
+                    <ArrowRight className="h-3 w-3 group-hover/link:translate-x-1 transition-transform" />
+                  </a>
+                </div>
+              </motion.article>
+            ))}
+          </div>
+
+          {/* View All Projects CTA */}
+          <div className="mt-12 text-center">
+            <a
+              href="mailto:applynk@gmail.com"
+              className="inline-flex items-center gap-3 rounded-full border border-emerald-400/60 bg-emerald-500/20 px-8 py-3 text-lg font-semibold text-white shadow-lg shadow-emerald-500/20 transition-all duration-300 hover:-translate-y-1 hover:bg-emerald-500/30 hover:shadow-emerald-500/30"
+            >
+              <Award className="h-5 w-5" />
+              Discuss Your Project
+              <ArrowRight className="h-5 w-5" />
+            </a>
+          </div>
+        </motion.section>
+
+        {/* Testimonials Section */}
+        <motion.section
+          className="mx-auto max-w-7xl px-6 pb-20"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.6 }}
+        >
+          <div className="mb-12 text-center">
+            <span className="inline-flex items-center gap-2 rounded-full border border-emerald-400/40 bg-emerald-400/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-emerald-200">
+              <Star className="h-3 w-3" />
+              Client Success Stories
+            </span>
+            <h2 className="mt-4 text-3xl font-bold text-white sm:text-4xl lg:text-5xl">
+              Trusted by <span className="text-emerald-400">Industry Leaders</span>
+            </h2>
+            <p className="mt-3 text-base text-slate-300 sm:text-lg max-w-2xl mx-auto">
+              See how we've helped companies transform their operations and achieve measurable growth.
+            </p>
+          </div>
+
+          {/* Company Stats */}
+          <div className="mb-16 grid grid-cols-2 gap-6 lg:grid-cols-4">
+            {companyStats.map((stat, index) => (
+              <motion.div
+                key={stat.label}
+                className="text-center p-6 rounded-2xl border border-white/10 bg-slate-900/50"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+              >
+                <stat.icon className={`h-8 w-8 mx-auto mb-3 text-${stat.color}-400`} />
+                <div className="text-2xl font-bold text-white lg:text-3xl">{stat.metric}</div>
+                <div className="text-sm text-slate-400">{stat.label}</div>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Testimonials Grid */}
+          <div className="grid gap-8 lg:grid-cols-2">
+            {testimonials.map((testimonial, index) => (
+              <motion.div
+                key={testimonial.name}
+                className="group relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-slate-900/90 to-slate-800/50 p-8 shadow-2xl shadow-emerald-500/5 transition-all duration-300 hover:scale-[1.02] hover:shadow-emerald-500/10"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+              >
+                {/* Quote */}
+                <div className="mb-6">
+                  <div className="mb-4 flex items-center gap-1">
+                    {[...Array(testimonial.rating)].map((_, i) => (
+                      <Star key={i} className="h-4 w-4 fill-emerald-400 text-emerald-400" />
+                    ))}
+                  </div>
+                  <blockquote className="text-slate-300 leading-relaxed">
+                    "{testimonial.text}"
+                  </blockquote>
+                </div>
+
+                {/* Author */}
+                <div className="flex items-center gap-4">
+                  <div className="h-12 w-12 rounded-full bg-emerald-500/10 border border-emerald-400/30 flex items-center justify-center text-2xl">
+                    {testimonial.image}
+                  </div>
+                  <div>
+                    <div className="font-semibold text-white">{testimonial.name}</div>
+                    <div className="text-sm text-emerald-400">{testimonial.role}</div>
+                    <div className="text-xs text-slate-400">{testimonial.company}</div>
+                  </div>
+                </div>
+
+                {/* Project Tag */}
+                <div className="absolute top-4 right-4">
+                  <span className="rounded-full bg-emerald-500/20 border border-emerald-400/40 px-3 py-1 text-xs font-medium text-emerald-300">
+                    {testimonial.project}
+                  </span>
+                </div>
+              </motion.div>
             ))}
           </div>
         </motion.section>
@@ -1018,7 +1439,7 @@ function App() {
 
         <motion.section
           id="contact"
-          className="mx-auto max-w-4xl px-6 pb-24"
+          className="mx-auto max-w-6xl px-6 pb-24"
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
