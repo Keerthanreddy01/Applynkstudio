@@ -25,11 +25,7 @@ import {
   Server,
   Lock,
   Star,
-  Calendar,
-  MapPin,
   Eye,
-  Filter,
-  Search,
   Play,
   Award,
   TrendingUp,
@@ -384,7 +380,6 @@ function App() {
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [hoveredMenu, setHoveredMenu] = useState<string | null>(null);
   const [projectFilter, setProjectFilter] = useState<string>('All');
-  const [hoveredProject, setHoveredProject] = useState<string | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -979,8 +974,6 @@ function App() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                onMouseEnter={() => setHoveredProject(project.title)}
-                onMouseLeave={() => setHoveredProject(null)}
               >
                 {/* Status Badge */}
                 <div className="absolute top-4 right-4">
