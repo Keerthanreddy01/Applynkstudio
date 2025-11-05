@@ -3,52 +3,88 @@ import logo from "./assets/logos/logo.png";
 import { useState, useEffect } from "react";
 import {
   ArrowRight,
-  Atom,
   BarChart3,
   BrainCircuit,
   Code,
+  Database,
+  Shield,
+  Cloud,
+  Zap,
+  Globe,
+  Smartphone,
   Github,
-  Headphones,
-  LayoutDashboard,
   LineChart,
   Linkedin,
-  Rocket,
   Sparkles,
   Target,
   Users,
   ArrowUp,
+  ChevronDown,
+  ExternalLink,
+  Monitor,
+  Server,
+  Lock,
 } from "lucide-react";
 
 const services = [
   {
-    icon: Rocket,
-    title: "App Development",
+    icon: Database,
+    title: "Database Solutions",
     description:
-      "Custom mobile and web applications engineered for performance, scalability, and expressive design.",
+      "Scalable PostgreSQL databases with real-time capabilities and automated backups for mission-critical applications.",
+  },
+  {
+    icon: Shield,
+    title: "Authentication & Security",
+    description:
+      "Complete user management with multi-factor authentication, role-based access control, and enterprise security.",
+  },
+  {
+    icon: Cloud,
+    title: "Cloud Storage",
+    description:
+      "Serverless file storage with CDN distribution, image optimization, and seamless media management.",
+  },
+  {
+    icon: Zap,
+    title: "Edge Functions",
+    description:
+      "Deploy serverless functions globally with ultra-low latency and automatic scaling for peak performance.",
+  },
+  {
+    icon: Globe,
+    title: "Realtime Features",
+    description:
+      "Live data synchronization, websockets, and broadcast messaging for collaborative applications.",
   },
   {
     icon: BrainCircuit,
-    title: "AI & Automation",
+    title: "AI Integration",
     description:
-      "AI chatbots, predictive systems, and smart automation flows that streamline operations end to end.",
+      "Smart embeddings, vector search, and AI-powered features seamlessly integrated into your applications.",
+  },
+];
+
+const platforms = [
+  {
+    icon: Monitor,
+    title: "Web Applications",
+    description: "Modern React, Next.js, and Vue.js applications with server-side rendering and optimization.",
   },
   {
-    icon: LayoutDashboard,
-    title: "UI/UX Design",
-    description:
-      "Immersive digital experiences crafted with research-driven insights and interactive storytelling.",
+    icon: Smartphone,
+    title: "Mobile Development",
+    description: "Native iOS and Android apps, plus cross-platform solutions with React Native and Flutter.",
   },
   {
-    icon: Atom,
-    title: "Web Development",
-    description:
-      "Responsive, SEO-ready web builds with lightning-fast performance and maintainable architectures.",
+    icon: Server,
+    title: "Backend Services",
+    description: "Scalable APIs, microservices architecture, and cloud infrastructure management.",
   },
   {
-    icon: Headphones,
-    title: "Product Consulting",
-    description:
-      "Strategy-to-ship consulting with dedicated squads that translate vision into measurable outcomes.",
+    icon: Lock,
+    title: "Security & Compliance",
+    description: "Enterprise-grade security, GDPR compliance, and data protection for regulated industries.",
   },
 ];
 
@@ -204,6 +240,7 @@ const aiToolLogos = [
 
 function App() {
   const [showScrollTop, setShowScrollTop] = useState(false);
+  const [hoveredMenu, setHoveredMenu] = useState<string | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -220,15 +257,15 @@ function App() {
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100">
       <div className="absolute inset-0 -z-10 overflow-hidden">
-        <div className="pointer-events-none absolute -top-48 right-1/2 h-96 w-96 translate-x-1/2 rounded-full bg-sky-500/25 blur-3xl" />
-        <div className="pointer-events-none absolute bottom-[-120px] left-[-80px] h-80 w-80 rounded-full bg-indigo-500/25 blur-3xl" />
-        <div className="pointer-events-none absolute bottom-[-160px] right-[-60px] h-72 w-72 rounded-full bg-cyan-400/15 blur-3xl" />
+        <div className="pointer-events-none absolute -top-48 right-1/2 h-96 w-96 translate-x-1/2 rounded-full bg-emerald-500/20 blur-3xl" />
+        <div className="pointer-events-none absolute bottom-[-120px] left-[-80px] h-80 w-80 rounded-full bg-emerald-500/15 blur-3xl" />
+        <div className="pointer-events-none absolute bottom-[-160px] right-[-60px] h-72 w-72 rounded-full bg-emerald-400/10 blur-3xl" />
       </div>
 
-      <header className="sticky top-0 z-20 border-b border-sky-400/30 bg-slate-950/70 backdrop-blur-xl">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+      <header className="sticky top-0 z-50 border-b border-emerald-400/20 bg-slate-950/95 backdrop-blur-xl">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
           <a href="#top" className="flex items-center gap-3 text-lg font-semibold">
-            <span className="relative inline-flex h-10 w-10 items-center justify-center overflow-hidden rounded-full border border-sky-400/50 bg-slate-900/60">
+            <span className="relative inline-flex h-10 w-10 items-center justify-center overflow-hidden rounded-lg border border-emerald-400/50 bg-emerald-500/10">
               <img 
                 src={logo} 
                 alt="AppLynk Studio Logo" 
@@ -237,30 +274,184 @@ function App() {
             </span>
             AppLynk Studio
           </a>
-          <nav className="hidden gap-6 text-sm font-medium sm:flex">
-            <a className="transition hover:text-sky-300" href="#about">
-              About
-            </a>
-            <a className="transition hover:text-sky-300" href="#services">
-              Services
-            </a>
-            <a className="transition hover:text-sky-300" href="#approach">
-              Approach
-            </a>
-            <a className="transition hover:text-sky-300" href="#projects">
+          <nav className="hidden gap-8 text-sm font-medium lg:flex">
+            {/* Product Dropdown */}
+            <div 
+              className="relative"
+              onMouseEnter={() => setHoveredMenu('product')}
+              onMouseLeave={() => setHoveredMenu(null)}
+            >
+              <button className="flex items-center gap-1 py-2 transition hover:text-emerald-300">
+                Product
+                <ChevronDown className="h-4 w-4" />
+              </button>
+              
+              <AnimatePresence>
+                {hoveredMenu === 'product' && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 10 }}
+                    transition={{ duration: 0.2 }}
+                    className="absolute left-0 top-full w-80 rounded-2xl border border-emerald-400/20 bg-slate-900/95 p-6 shadow-2xl backdrop-blur-xl"
+                  >
+                    <div className="space-y-4">
+                      <div className="text-xs font-semibold uppercase tracking-wider text-emerald-300">
+                        Core Services
+                      </div>
+                      {services.slice(0, 3).map((service, index) => (
+                        <a
+                          key={index}
+                          href="#services"
+                          className="group flex items-start gap-3 rounded-lg p-3 transition hover:bg-emerald-500/10"
+                        >
+                          <service.icon className="mt-1 h-5 w-5 text-emerald-400" />
+                          <div>
+                            <div className="font-medium text-white group-hover:text-emerald-300">
+                              {service.title}
+                            </div>
+                            <div className="text-xs text-slate-400">
+                              {service.description.slice(0, 60)}...
+                            </div>
+                          </div>
+                        </a>
+                      ))}
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+
+            {/* Developers Dropdown */}
+            <div 
+              className="relative"
+              onMouseEnter={() => setHoveredMenu('developers')}
+              onMouseLeave={() => setHoveredMenu(null)}
+            >
+              <button className="flex items-center gap-1 py-2 transition hover:text-emerald-300">
+                Developers
+                <ChevronDown className="h-4 w-4" />
+              </button>
+              
+              <AnimatePresence>
+                {hoveredMenu === 'developers' && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 10 }}
+                    transition={{ duration: 0.2 }}
+                    className="absolute left-0 top-full w-80 rounded-2xl border border-emerald-400/20 bg-slate-900/95 p-6 shadow-2xl backdrop-blur-xl"
+                  >
+                    <div className="space-y-4">
+                      <div className="text-xs font-semibold uppercase tracking-wider text-emerald-300">
+                        Developer Resources
+                      </div>
+                      <a
+                        href="#approach"
+                        className="group flex items-start gap-3 rounded-lg p-3 transition hover:bg-emerald-500/10"
+                      >
+                        <Code className="mt-1 h-5 w-5 text-emerald-400" />
+                        <div>
+                          <div className="font-medium text-white group-hover:text-emerald-300">
+                            Technical Approach
+                          </div>
+                          <div className="text-xs text-slate-400">
+                            Our development methodology and best practices
+                          </div>
+                        </div>
+                      </a>
+                      <a
+                        href="https://github.com/Applynk-studio"
+                        target="_blank"
+                        rel="noreferrer"
+                        className="group flex items-start gap-3 rounded-lg p-3 transition hover:bg-emerald-500/10"
+                      >
+                        <Github className="mt-1 h-5 w-5 text-emerald-400" />
+                        <div>
+                          <div className="flex items-center gap-1 font-medium text-white group-hover:text-emerald-300">
+                            Open Source
+                            <ExternalLink className="h-3 w-3" />
+                          </div>
+                          <div className="text-xs text-slate-400">
+                            Explore our open source contributions
+                          </div>
+                        </div>
+                      </a>
+                      <a
+                        href="#crew"
+                        className="group flex items-start gap-3 rounded-lg p-3 transition hover:bg-emerald-500/10"
+                      >
+                        <Users className="mt-1 h-5 w-5 text-emerald-400" />
+                        <div>
+                          <div className="font-medium text-white group-hover:text-emerald-300">
+                            Our Team
+                          </div>
+                          <div className="text-xs text-slate-400">
+                            Meet the developers behind AppLynk Studio
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+
+            {/* Solutions Dropdown */}
+            <div 
+              className="relative"
+              onMouseEnter={() => setHoveredMenu('solutions')}
+              onMouseLeave={() => setHoveredMenu(null)}
+            >
+              <button className="flex items-center gap-1 py-2 transition hover:text-emerald-300">
+                Solutions
+                <ChevronDown className="h-4 w-4" />
+              </button>
+              
+              <AnimatePresence>
+                {hoveredMenu === 'solutions' && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 10 }}
+                    transition={{ duration: 0.2 }}
+                    className="absolute left-0 top-full w-80 rounded-2xl border border-emerald-400/20 bg-slate-900/95 p-6 shadow-2xl backdrop-blur-xl"
+                  >
+                    <div className="space-y-4">
+                      <div className="text-xs font-semibold uppercase tracking-wider text-emerald-300">
+                        Platform Solutions
+                      </div>
+                      {platforms.map((platform, index) => (
+                        <a
+                          key={index}
+                          href="#services"
+                          className="group flex items-start gap-3 rounded-lg p-3 transition hover:bg-emerald-500/10"
+                        >
+                          <platform.icon className="mt-1 h-5 w-5 text-emerald-400" />
+                          <div>
+                            <div className="font-medium text-white group-hover:text-emerald-300">
+                              {platform.title}
+                            </div>
+                            <div className="text-xs text-slate-400">
+                              {platform.description.slice(0, 60)}...
+                            </div>
+                          </div>
+                        </a>
+                      ))}
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+
+            <a className="py-2 transition hover:text-emerald-300" href="#projects">
               Projects
             </a>
-            <a className="transition hover:text-sky-300" href="#culture">
+            <a className="py-2 transition hover:text-emerald-300" href="#culture">
               Culture
             </a>
-            <a className="transition hover:text-sky-300" href="#founder">
-              Founder
-            </a>
-            <a className="transition hover:text-sky-300" href="#crew">
-              Crew
-            </a>
-            <a className="transition hover:text-sky-300" href="#contact">
-              Contact
+            <a className="py-2 transition hover:text-emerald-300" href="#founder">
+              About
             </a>
           </nav>
           <a
